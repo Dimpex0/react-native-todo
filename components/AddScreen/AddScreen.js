@@ -15,12 +15,8 @@ export default function AddScreen({ navigation, route }) {
   const [task, setTask] = useState({
     title: "",
     deathline: dayjs(),
+    createdAt: dayjs(),
   });
-
-  useEffect(() => {
-    console.log(task);
-    console.log(dayjs());
-  }, [task]);
 
   async function createTask() {
     await saveTodo(task);

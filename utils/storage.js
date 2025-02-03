@@ -1,5 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+function orderTasks(tasks) {
+  //
+}
+
 export async function getTodos() {
   try {
     const data = await AsyncStorage.getItem("todos");
@@ -24,7 +28,7 @@ export async function deleteTodo(task) {
   try {
     const todos = await getTodos();
     const updatedTodos = todos.filter(
-      (todo) => todo.deathline != task.deathline
+      (todo) => todo.createdAt != task.createdAt
     );
     await AsyncStorage.setItem("todos", JSON.stringify(updatedTodos));
   } catch (error) {
